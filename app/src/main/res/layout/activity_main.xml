@@ -11,8 +11,9 @@
         android:orientation="vertical">
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
-            app:title="DRISHTIM"
+            app:title="Status Today"
             android:layout_width="match_parent"
+            app:titleTextColor="@color/white"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary">
             <TextView
@@ -23,7 +24,7 @@
                 android:layout_gravity="center" />
         </com.google.android.material.appbar.MaterialToolbar>
 
-        <com.google.android.material.card.MaterialCardView
+        <!--com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="8dp"
@@ -110,9 +111,9 @@
                         android:textColor="@color/white"/>
                 </LinearLayout>
             </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView-->
 
-        <TextView
+        <!--TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Summery"
@@ -120,7 +121,7 @@
             android:textColor="#0097A7"
             android:layout_marginStart="10dp"
             android:textStyle="bold"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp" /-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"

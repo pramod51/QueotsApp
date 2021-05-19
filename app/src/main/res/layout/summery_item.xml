@@ -1,54 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="25dp"
+    android:layout_marginEnd="25dp"
+    android:layout_marginBottom="8dp"
     android:layout_height="wrap_content">
-    <LinearLayout
-        android:id="@+id/linear_layout"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="6"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/back_outline_red"
-        android:orientation="horizontal">
+        android:layout_height="100dp"
+        app:cardBackgroundColor="#4593E1"
+        android:layout_centerInParent="true"
+        app:cardCornerRadius="10dp">
         <TextView
-            android:id="@+id/title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            style="@style/TextAppearance.AppCompat.Medium"
-            android:text="Over Speeding"
-            android:gravity="start|center_vertical"
-            android:textColor="@color/black"
-            android:padding="10dp"/>
-        <TextView
-            android:id="@+id/occurrence"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/TextAppearance.AppCompat.Medium"
-            android:text="NO"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:padding="8dp"/>
-        <RelativeLayout
-            android:layout_width="0dp"
+            android:id="@+id/image"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-            <ImageView
-                android:id="@+id/symbol"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/error"
-                android:scaleType="fitXY"/>
-        </RelativeLayout>
+            style="@style/TextAppearance.AppCompat.Headline"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="Happiness"/>
+    </androidx.cardview.widget.CardView>
 
 
-
-    </LinearLayout>
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
-package com.trial.app;
+package com.app.quotes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +12,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class SummeryAdopter extends RecyclerView.Adapter<SummeryAdopter.ViewHolder> {
     ArrayList<Model> models;
     Context context;
-
     public SummeryAdopter(ArrayList<Model> models, Context context) {
         this.models = models;
         this.context = context;
@@ -32,16 +34,16 @@ public class SummeryAdopter extends RecyclerView.Adapter<SummeryAdopter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Model currentModel=models.get(position);
-        holder.title.setText(currentModel.getTitle());
-        holder.occurrence.setText(currentModel.getOccurrence());
-        if (currentModel.getSymbol().equals("error")){
-            holder.symbol.setImageResource(R.drawable.error);
-            holder.layout.setBackground(context.getResources().getDrawable(R.drawable.back_outline_red));
-        }
-        else{
-            holder.symbol.setImageResource(R.drawable.check);
-            holder.layout.setBackground(context.getResources().getDrawable(R.drawable.back_outline_green));
-        }
+        holder.symbol.setText(currentModel.getTitle());
+        holder.symbol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(context,Quotes.class);
+                intent.putExtra("key",""+(position+1));
+                intent.putExtra("name",currentModel.getTitle());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -52,13 +54,10 @@ public class SummeryAdopter extends RecyclerView.Adapter<SummeryAdopter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         private LinearLayout layout;
         private TextView title,occurrence;
-        private ImageView symbol;
+        private TextView symbol;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            title=itemView.findViewById(R.id.title);
-            occurrence=itemView.findViewById(R.id.occurrence);
-            symbol=itemView.findViewById(R.id.symbol);
-            layout=itemView.findViewById(R.id.linear_layout);
+            symbol=itemView.findViewById(R.id.image);
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.trial.app;
+package com.app.quotes;
 
 public class Model {
     String title,occurrence,symbol;

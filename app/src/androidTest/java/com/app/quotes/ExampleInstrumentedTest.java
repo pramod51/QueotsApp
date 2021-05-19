@@ -1,4 +1,4 @@
-package com.trial.app;
+package com.app.quotes;
 
 import android.content.Context;
 
