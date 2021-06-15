@@ -39,7 +39,7 @@ public class SummeryAdopter extends RecyclerView.Adapter<SummeryAdopter.ViewHold
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(context,Quotes.class);
-                intent.putExtra("key",""+(position+1));
+                intent.putExtra("key",currentModel.getOccurrence());
                 intent.putExtra("name",currentModel.getTitle());
                 context.startActivity(intent);
             }

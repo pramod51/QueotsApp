@@ -37,6 +37,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,13 +71,22 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i=1;i<=20;i++){
             //Log.v("tag","i=="+i);
+            int finalI = i;
             FirebaseFirestore.getInstance().collection(""+i).document("Images").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    if (!documentSnapshot.exists())
+                    if (!documentSnapshot.exists()) {
+                        Collections.sort(models, new Comparator<Model>() {
+                            @Override
+                            public int compare(Model model, Model t1) {
+                                return model.getTitle().compareTo(t1.getTitle());
+                            }
+                        });
+                        adapter.notifyDataSetChanged();
                         return;
+                    }
                     Log.v("tag",documentSnapshot.getData().size()+"");
-                    models.add(new Model(documentSnapshot.getString("name"),"No","check"));
+                    models.add(new Model(documentSnapshot.getString("name"), finalI +"","check"));
                     adapter=new SummeryAdopter(models,MainActivity.this);
                     recyclerView.setAdapter(adapter);
                 }
